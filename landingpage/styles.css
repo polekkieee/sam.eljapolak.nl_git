@@ -1,0 +1,153 @@
+body,
+html {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100vw;
+    background: black;
+    overflow: hidden;
+    cursor: none;
+}
+
+* {
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-user-drag: none;
+}
+
+.centerbox {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cinzel-decorative-regular {
+    font-family: "Cinzel Decorative", serif;
+    font-weight: 600;
+    font-style: normal;
+}
+
+.cinzel-decorative-bold {
+    font-family: "Cinzel Decorative", serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.cinzel-decorative-black {
+    font-family: "Cinzel Decorative", serif;
+    font-weight: 900;
+    font-style: normal;
+}
+
+
+.viaoda-libre-regular {
+    font-family: "Viaoda Libre", serif;
+    font-weight: 900;
+    font-style: normal;
+}
+
+.russo-one-regular {
+    font-family: "Russo One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+.container {
+    position: relative;
+    width: 50%;
+    max-height: 50%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    cursor: crosshair;
+    box-shadow: inset 0 0 500px rgb(0, 0, 0);
+    background-color: black;
+}
+
+#video-background {
+    margin-top: -20%;
+    object-fit: cover;
+    transition: opacity 1s;
+    opacity: 30%;
+}
+
+#video-background:hover {
+    opacity: 70%;
+}
+
+
+.content {
+    height: fit-content;
+    width: fit-content;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 1;
+    color: #fff;
+    transition: font-size 1s ease 0.2s;
+    font-size: calc(0.6rem + 0.9vw);
+    line-height: calc(0.6rem + 0.9vw);
+    text-shadow: 0 0 10px rgb(0, 0, 0);
+}
+
+.content:hover {
+    font-size: calc(0.9rem + 0.9vw);
+}
+
+.signup {
+    height: fit-content;
+    width: fit-content;
+    padding: 3px 1vw 3px 1vw;
+    position: absolute;
+    top: 63%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 1;
+    color: black;
+    background-color: #fff;
+    transition: padding .5s;
+    cursor: pointer;
+    border: none;
+    box-shadow: 0 0 10px rgb(0, 0, 0);
+    font-size: calc(0.4rem + 0.3vw);
+}
+
+.signup:hover {
+    padding: 5px 1.5vw 5px 1.5vw;
+}
+
+.signup:active {
+    padding: 5px 1.4vw 5px 1.4vw;
+}
+
+#light {
+    width: 0px;
+    height: 0px;
+    border-radius: 50%;
+    position: absolute;
+    transform: translate(var(--light-position-x, 0px), var(--light-position-y, 0px));
+    box-shadow: 0 0 50px 50px rgb(255, 255, 255);
+}
+
+.date {
+    width: max-content;
+    text-overflow: clip;
+    position: fixed;
+    top: 200px;
+    left: 1506px;
+    letter-spacing: normal;
+    opacity: 20%;
+    color: black;
+}
