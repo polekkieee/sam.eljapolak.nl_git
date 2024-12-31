@@ -141,7 +141,7 @@ html {
     box-shadow: 0 0 50px 50px rgb(255, 255, 255);
 }
 
-.date {
+/* .date {
     width: max-content;
     text-overflow: clip;
     position: fixed;
@@ -150,4 +150,4 @@ html {
     letter-spacing: normal;
     opacity: 20%;
     color: black;
-}
+} */
