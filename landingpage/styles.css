@@ -141,13 +141,37 @@ html {
     box-shadow: 0 0 50px 50px rgb(255, 255, 255);
 }
 
-/* .date {
-    width: max-content;
-    text-overflow: clip;
-    position: fixed;
-    top: 200px;
-    left: 1506px;
-    letter-spacing: normal;
-    opacity: 20%;
+.switch {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+}
+
+#switchButton {
+    background-color: #fff;
     color: black;
-} */
+    font-family: "Cinzel Decorative", serif;
+    font-weight: 600;
+    font-size: calc(0.4rem + 0.3vw);
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    transition: all 0.3s ease;
+}
+
+#switchButton:hover {
+    background-color: #f0f0f0;
+    color: #000;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 1);
+    transform: scale(1.1);
+}
+
+#switchButton:active {
+    background-color: #e0e0e0;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    transform: scale(1.05);
+}
