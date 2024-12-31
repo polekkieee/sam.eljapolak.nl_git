@@ -13,9 +13,12 @@
 
 <body>
   <div id="light" style="--light-position-y: -100px; --light-position-x: -100px"></div>
+
   <div class="switch">
-    <button id="switchButton">Switch Video</button>
+    <input type="checkbox" id="switchToggle">
+    <label for="switchToggle" class="switch-label"></label>
   </div>
+  
   <div class="centerbox">
     <div class="container cinzel-decorative-black">
       <video autoplay muted loop id="video-background">
@@ -28,8 +31,10 @@
       <button class="signup cinzel-decorative-regular ">click here</button>
     </div>
   </div>
-  <p>find this</p>
+
   <script>
+
+    // Light behind cursor
     var light = document.getElementById('light');
     var isTracking = false;
 
@@ -50,26 +55,24 @@
       }
     });
 
-    const switchButton = document.getElementById('switchButton');
-  const videoSource = document.querySelector('#video-background source');
-  const videoElement = document.getElementById('video-background');
 
-  // Initial video state
-  let isEarth = true;
+    // Switch button
+    const switchToggle = document.getElementById('switchToggle');
+    const videoSource = document.querySelector('#video-background source');
+    const videoElement = document.getElementById('video-background');
 
-  // Add click event listener to the button
-  switchButton.addEventListener('click', () => {
-    if (isEarth) {
-      videoSource.src = 'moon.mp4';
-    } else {
-      videoSource.src = 'earth.mp4';
-    }
-    isEarth = !isEarth;
+    // Add change event listener to the toggle switch
+    switchToggle.addEventListener('change', () => {
+      if (switchToggle.checked) {
+        videoSource.src = 'moon.mp4';
+      } else {
+        videoSource.src = 'earth.mp4';
+      }
 
-    // Reload the video with the new source
-    videoElement.load();
-    videoElement.play();
-  });
+      // Reload the video with the new source
+      videoElement.load();
+      videoElement.play();
+    });
   </script>
 
 
