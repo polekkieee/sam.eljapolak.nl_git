@@ -1,3 +1,7 @@
+<?php
+require_once "../configurationsettings.php";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,7 +19,7 @@
             <form action="index.php" method="post">
                 <input type="text" name="username" placeholder="Username" required>
                 <input type="password" name="password" placeholder="Password" required>
-                <input type="submit" value="Login">
+                <input type="submit" value="Login" name="save">
                 <a class="signupbutton" href="signup.php">Sign up</a>
             </form>
         </div>

@@ -32,15 +32,16 @@ html{
     width: 80vw;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     padding-top: 12px;
     padding-bottom: 12px;
     margin: 0 auto;
     background-color: var(--color-light-grey);
-    margin-top: 20px;
+    margin-top: 40px;
     margin-bottom: 20px;
     border-radius: 10px;
+
+    height: 150vh;
 }
 
 header{
@@ -51,20 +52,29 @@ header{
 }
 
 nav{
-    width: 98%;
+    position: sticky;
+    top: 32px;
+    width: 80vw;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     padding: 1vh 2vw;
+    margin: 0 auto;
+
     background-color: var(--color-light-grey);
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
     border-radius: 10px;
     margin-bottom: 20px;
+
 }
 
 
 @media screen and (max-width: 800px){
+    nav{
+      width: 100%;
+    }
+
     .box{
         width: 100%;
     }
@@ -139,7 +149,8 @@ h2{
 }
 
 .login-container input[type="text"],
-.login-container input[type="password"] {
+.login-container input[type="password"],
+.login-container input[type="email"] {
     width: 80%;
     padding: 10px 10px 10px 19px;
     margin: 10px 0;
@@ -149,7 +160,8 @@ h2{
 }
 
 .login-container input[type="text"]:focus,
-.login-container input[type="password"]:focus {
+.login-container input[type="password"]:focus,
+.login-container input[type="email"]:focus {
     outline: none;
     border: 2px solid var(--color-red-2);
 }
@@ -328,4 +340,10 @@ h2{
   
   .nav-container input[type="checkbox"]:checked ~ .hamburger-lines .line3 {
     transform: rotate(-45deg);
+  }
+
+  .box-1{
+    background-color: var(--color-pink-2);
+    width: 98%;
+    border-radius: 5px;
   }

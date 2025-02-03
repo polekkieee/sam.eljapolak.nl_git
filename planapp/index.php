@@ -1,3 +1,7 @@
+<?php
+require_once "../configurationsettings.php";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,35 +13,44 @@
 </head>
 
 <body>
+    <nav>
+        <div class="width-33"><img class="logoimg" src="img/logo.svg" alt="SweetPlans Logo"></div>
+        <div class="width-33">
+            <h1><strong>SweetPlans</strong></h1>
+        </div>
+        <div class="account-buttons">
+            <div><a class="loginbutton" href="login.php">Log In</a></div>
+            <div><a class="signupbutton" href="signup.php">Sign Up</a></div>
+        </div>
+        <div class="burgermenu nav-container">
+            <input class="checkbox" type="checkbox" name="" id="" />
+            <div class="hamburger-lines">
+                <span class="line line1"></span>
+                <span class="line line2"></span>
+                <span class="line line3"></span>
+            </div>
+            <div class="menu-items">
+                <li><a class="loginbutton" href="login.php">Log In</a></li>
+                <li><a class="signupbutton" href="signup.php">Sign Up</a></li>
+            </div>
+        </div>
+    </nav>
     <div class="box">
         <header>
-            <nav>
-                <div class="width-33"><img class="logoimg" src="img/logo.svg" alt="SweetPlans Logo"></div>
-                <div class="width-33">
-                    <h1><strong>SweetPlans</strong></h1>
+
+            <div class="box-1">
+                <div class="welcomemsg">
+                    <h2>Welcome to <br><strong>SweetPlans</strong></h2>
+                    <p>Plan your events together, <br> with ease.
+                    </p>
                 </div>
-                <div class="account-buttons">
-                    <div><a class="loginbutton" href="login.php">Log In</a></div>
-                    <div><a class="signupbutton" href="signup.php">Sign Up</a></div>
-                </div>
-                <div class="burgermenu nav-container">
-                    <input class="checkbox" type="checkbox" name="" id="" />
-                    <div class="hamburger-lines">
-                        <span class="line line1"></span>
-                        <span class="line line2"></span>
-                        <span class="line line3"></span>
-                    </div>
-                    <div class="menu-items">
-                        <li><a class="loginbutton" href="login.php">Log In</a></li>
-                        <li><a class="signupbutton" href="signup.php">Sign Up</a></li>
+                <div class="demo-wrapper">
+                    <div class="demo">
+
                     </div>
                 </div>
-            </nav>
-            <div class="welcomemsg">
-                <h2>Welcome to <br><strong>SweetPlans</strong></h2>
-                <p>Plan your events together, <br> with ease.
-                </p>
             </div>
+
         </header>
     </div>
 
