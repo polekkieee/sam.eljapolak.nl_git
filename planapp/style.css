@@ -194,7 +194,7 @@ h2{
     text-decoration: none;
     border-radius: 10px;
     margin-right: 10px;
-    min-width: fit-content;
+    white-space: nowrap;
 }
 
 .loginbutton:hover{
@@ -208,7 +208,7 @@ h2{
     padding: 10px 13px 10px 15px;
     text-decoration: none;
     border-radius: 50px;
-    min-width: fit-content;
+    white-space: nowrap;
 }
 
 .signupbutton:hover{
