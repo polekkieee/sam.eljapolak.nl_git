@@ -347,3 +347,16 @@ h2{
     width: 98%;
     border-radius: 5px;
   }
+
+  .centerbox {
+    position: fixed;
+    background-color: var(--color-light-grey);
+    height: 100vh;
+    width: 100vw;
+    top:0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }

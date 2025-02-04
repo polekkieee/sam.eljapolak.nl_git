@@ -19,7 +19,7 @@ $error = false;
     <?php
     if (isset($_SESSION["loggedin"])) {
     ?>
-        <div class="menu-items">
+        <div class="centerbox">
             <a class="signupbutton" href="logout">Log out</a>
         </div>
     <?php
