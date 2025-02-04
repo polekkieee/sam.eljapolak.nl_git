@@ -41,7 +41,7 @@ require_once "../configurationsettings_sweetplans.php";
                     $stmt->bindParam('_email', $_email);
                     $stmt->bindParam('_password', $_passworde);
 
-                    echo "<p>Geregistreerd</p>";
+                    echo "<p>Registered. <a href='login.php'>Login</a></p>";
 
                     // insert a row
                     $stmt->execute();
@@ -50,7 +50,7 @@ require_once "../configurationsettings_sweetplans.php";
                 }
             }
             ?>
-            
+
         </div>
 
 
