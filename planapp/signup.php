@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once "../configurationsettings_sweetplans.php";
 ?>
 
@@ -15,7 +16,7 @@ require_once "../configurationsettings_sweetplans.php";
 <body>
     <div class="loginbody">
         <div class="login-container">
-            <h2>Sign up for <strong>SweetPlans</strong></h2>
+            <h2>Sign up - <strong>SweetPlans</strong></h2>
             <form method="post">
                 <input type="text" name="_name" placeholder="Name" required>
                 <input type="email" name="_email" placeholder="Email" required>
