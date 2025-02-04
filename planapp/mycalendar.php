@@ -96,7 +96,7 @@ if (!isset($_SESSION["loggedin"])) {
       </button>
     </div>
 
-    <script src="script.js"></script>
+    <script src="appscript.js"></script>
   </body>
 </html>
 <?php
