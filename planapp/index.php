@@ -1,5 +1,5 @@
 <?php
-require_once "../configurationsettings.php";
+require_once "../configurationsettings_sweetplans.php";
 ?>
 
 <!DOCTYPE html>
