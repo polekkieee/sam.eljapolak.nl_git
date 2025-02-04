@@ -16,7 +16,7 @@ require_once "../configurationsettings_sweetplans.php";
     <div class="loginbody">
         <div class="login-container">
             <h2>Login to <strong>SweetPlans</strong></h2>
-            <form action="index.php" method="post">
+            <form method="post">
                 <input type="text" name="_name" placeholder="Name" required>
                 <input type="email" name="_email" placeholder="Email" required>
                 <input type="password" name="_password" placeholder="Password" required>
