@@ -474,6 +474,8 @@ composer.lock
 *.scss.map
 
 configurationsettings.php
+configurationsettings_sweetplans.php
+
 .vscode/launch.json
 .vs/slnx.sqlite
 .vs/VSWorkspaceState.json
