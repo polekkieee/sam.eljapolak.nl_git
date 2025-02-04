@@ -14,46 +14,100 @@ require_once "../configurationsettings_sweetplans.php";
 </head>
 
 <body>
-    <nav>
-        <div class="width-33"><img class="logoimg" src="img/logo.svg" alt="SweetPlans Logo"></div>
-        <div class="width-33">
-            <h1><strong>SweetPlans</strong></h1>
-        </div>
-        <div class="account-buttons">
-            <div><a class="loginbutton" href="login">Log In</a></div>
-            <div><a class="signupbutton" href="signup">Sign Up</a></div>
-        </div>
-        <div class="burgermenu nav-container">
-            <input class="checkbox" type="checkbox" name="" id="" />
-            <div class="hamburger-lines">
-                <span class="line line1"></span>
-                <span class="line line2"></span>
-                <span class="line line3"></span>
-            </div>
-            <div class="menu-items">
-                <li><a class="loginbutton" href="login">Log In</a></li>
-                <li><a class="signupbutton" href="signup">Sign Up</a></li>
-            </div>
-        </div>
-    </nav>
-    <div class="box">
-        <header>
 
-            <div class="box-1">
-                <div class="welcomemsg">
-                    <h2>Welcome to <br><strong>SweetPlans</strong></h2>
-                    <p>Plan your events together, <br> with ease.
-                    </p>
+    <?php
+    if (isset($_SESSION["loggedin"])) {
+    ?>
+
+        <nav>
+            <div class="width-33"><img class="logoimg" src="img/logo.svg" alt="SweetPlans Logo"></div>
+            <div class="width-33">
+                <h1><strong>SweetPlans</strong></h1>
+            </div>
+            <div class="account-buttons">
+                <div><a class="loginbutton" href="profile">Profile</a></div>
+                <div><a class="signupbutton" href="index">My calendar</a></div>
+            </div>
+            <div class="burgermenu nav-container">
+                <input class="checkbox" type="checkbox" name="" id="" />
+                <div class="hamburger-lines">
+                    <span class="line line1"></span>
+                    <span class="line line2"></span>
+                    <span class="line line3"></span>
                 </div>
-                <div class="demo-wrapper">
-                    <div class="demo">
+                <div class="menu-items">
+                    <li><a class="loginbutton" href="profile">Profile</a></li>
+                    <li><a class="signupbutton" href="index">My calendar</a></li>
+                </div>
+            </div>
+        </nav>
+        <div class="box">
+            <header>
 
+                <div class="box-1">
+                    <div class="welcomemsg">
+                        <h2>Welcome <br><strong><?php echo $_SESSION["name"] ?></strong></h2>
+                        <p>Plan your events together, <br> with ease.
+                        </p>
+                    </div>
+                    <div class="demo-wrapper">
+                        <div class="demo">
+
+                        </div>
                     </div>
                 </div>
-            </div>
 
-        </header>
-    </div>
+            </header>
+        </div>
+
+    <?php
+    } else {
+    ?>
+
+        <nav>
+            <div class="width-33"><img class="logoimg" src="img/logo.svg" alt="SweetPlans Logo"></div>
+            <div class="width-33">
+                <h1><strong>SweetPlans</strong></h1>
+            </div>
+            <div class="account-buttons">
+                <div><a class="loginbutton" href="login">Log In</a></div>
+                <div><a class="signupbutton" href="signup">Sign Up</a></div>
+            </div>
+            <div class="burgermenu nav-container">
+                <input class="checkbox" type="checkbox" name="" id="" />
+                <div class="hamburger-lines">
+                    <span class="line line1"></span>
+                    <span class="line line2"></span>
+                    <span class="line line3"></span>
+                </div>
+                <div class="menu-items">
+                    <li><a class="loginbutton" href="login">Log In</a></li>
+                    <li><a class="signupbutton" href="signup">Sign Up</a></li>
+                </div>
+            </div>
+        </nav>
+        <div class="box">
+            <header>
+
+                <div class="box-1">
+                    <div class="welcomemsg">
+                        <h2>Welcome to <br><strong>SweetPlans</strong></h2>
+                        <p>Plan your events together, <br> with ease.
+                        </p>
+                    </div>
+                    <div class="demo-wrapper">
+                        <div class="demo">
+
+                        </div>
+                    </div>
+                </div>
+
+            </header>
+        </div>
+
+    <?php
+    }
+    ?>
 
     <script>
         document.querySelector('.menu-items').addEventListener('click', function() {
