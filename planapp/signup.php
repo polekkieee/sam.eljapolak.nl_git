@@ -23,34 +23,37 @@ require_once "../configurationsettings_sweetplans.php";
                 <input type="submit" value="Sign up" name="save">
                 <a class="signupbutton" href="login.php">Log in</a>
             </form>
+
+            <?php
+            if (isset($_POST["save"])) {
+                $_name = $_POST["_name"];
+                $_email = $_POST["_email"];
+                $_password = $_POST["_password"];
+
+                // INSERT INTO `users` (`name`, `email`, `password`) VALUES ('testname', 'test@mail.com', 'test123');
+                try {
+                    $sql = "INSERT INTO `users`(`name`, `email`, `password`)
+                    VALUES (:_name, :_email, :_password)";
+                    $stmt = $conn->prepare($sql);
+
+                    $_passworde = md5($_password);
+                    $stmt->bindParam('_name', $_name);
+                    $stmt->bindParam('_email', $_email);
+                    $stmt->bindParam('_password', $_passworde);
+
+                    echo "<p>Geregistreerd</p>";
+
+                    // insert a row
+                    $stmt->execute();
+                } catch (PDOException $e) {
+                    echo $sql . "<br>" . $e->getMessage() . "<br>";
+                }
+            }
+            ?>
+            
         </div>
 
-        <?php
-        if (isset($_POST["save"])) {
-            $_name = $_POST["_name"];
-            $_email = $_POST["_email"];
-            $_password = $_POST["_password"];
 
-            // INSERT INTO `users` (`name`, `email`, `password`) VALUES ('testname', 'test@mail.com', 'test123');
-            try {
-                $sql = "INSERT INTO `users`(`name`, `email`, `password`)
-                    VALUES (:_name, :_email, :_password)";
-                $stmt = $conn->prepare($sql);
-
-                $_passworde = md5($_password);
-                $stmt->bindParam('_name', $_name);
-                $stmt->bindParam('_email', $_email);
-                $stmt->bindParam('_password', $_passworde);
-
-                echo "<p>Geregistreerd</p>";
-
-                // insert a row
-                $stmt->execute();
-            } catch (PDOException $e) {
-                echo $sql . "<br>" . $e->getMessage() . "<br>";
-            }
-        }
-        ?>
 
     </div>
 </body>
