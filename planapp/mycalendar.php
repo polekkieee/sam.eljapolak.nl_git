@@ -1,5 +1,6 @@
 <?php
 session_start();
+require_once "../configurationsettings_sweetplans.php";
 
 if (!isset($_SESSION["loggedin"])) {
     header("location: login.php");

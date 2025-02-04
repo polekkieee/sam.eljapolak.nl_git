@@ -1,6 +1,6 @@
 <?php
 session_start();
-// require_once "../configurationsettings_sweetplans.php";
+require_once "../configurationsettings_sweetplans.php";
 ?>
 
 <!DOCTYPE html>
