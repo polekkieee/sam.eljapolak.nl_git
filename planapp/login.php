@@ -56,7 +56,7 @@ $error = false;
                         $_SESSION["email"] = $_email;
                         $_SESSION["name"] = $result["name"];
                         $_SESSION["userId"] = $result["id"];
-                        echo "<p class='registered'>Logged in succesfully</p>";
+                        echo "<p class='registered'>Logged in succesfully. Go to <a href='index'>Home</a> or <a href='profile'>Profile</a></p>";
                         // header("location:profile");
 
                     } else {
