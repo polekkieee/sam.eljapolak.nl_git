@@ -7,7 +7,7 @@ if (!isset($_SESSION["loggedin"])) {
     exit;
 }
 
-$user_id = $_SESSION["id"];
+$user_id = $_SESSION["userId"];
 
 // Function to get events from the database
 function getEvents($user_id, $conn) {
