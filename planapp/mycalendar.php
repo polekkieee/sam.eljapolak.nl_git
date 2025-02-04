@@ -3,11 +3,80 @@ session_start();
 require_once "../configurationsettings_sweetplans.php";
 
 if (!isset($_SESSION["loggedin"])) {
-    header("location: login.php");
+    header("location: login");
     exit;
-} else {
+}
 
+$user_id = $_SESSION["id"];
+
+// Function to get events from the database
+function getEvents($user_id, $conn) {
+    $sql = "SELECT * FROM events WHERE user_id = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("i", $user_id);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $events = [];
+    while ($row = $result->fetch_assoc()) {
+        $events[] = $row;
+    }
+    return $events;
+}
+
+// Function to add an event to the database
+function addEvent($user_id, $day, $month, $year, $title, $time_from, $time_to, $conn) {
+    $sql = "INSERT INTO events (user_id, day, month, year, title, time_from, time_to) VALUES (?, ?, ?, ?, ?, ?, ?)";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("iiiisss", $user_id, $day, $month, $year, $title, $time_from, $time_to);
+    return $stmt->execute();
+}
+
+// Function to delete an event from the database
+function deleteEvent($user_id, $day, $month, $year, $title, $conn) {
+    $sql = "DELETE FROM events WHERE user_id = ? AND day = ? AND month = ? AND year = ? AND title = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("iiiis", $user_id, $day, $month, $year, $title);
+    return $stmt->execute();
+}
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// Handle AJAX requests
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $action = $_POST["action"];
+    if ($action == "getEvents") {
+        echo json_encode(getEvents($user_id, $conn));
+    } elseif ($action == "addEvent") {
+        $day = $_POST["day"];
+        $month = $_POST["month"];
+        $year = $_POST["year"];
+        $title = $_POST["title"];
+        $time_from = $_POST["time_from"];
+        $time_to = $_POST["time_to"];
+        if (addEvent($user_id, $day, $month, $year, $title, $time_from, $time_to, $conn)) {
+            echo json_encode(["status" => "success"]);
+        } else {
+            echo json_encode(["status" => "error"]);
+        }
+    } elseif ($action == "deleteEvent") {
+        $day = $_POST["day"];
+        $month = $_POST["month"];
+        $year = $_POST["year"];
+        $title = $_POST["title"];
+        if (deleteEvent($user_id, $day, $month, $year, $title, $conn)) {
+            echo json_encode(["status" => "success"]);
+        } else {
+            echo json_encode(["status" => "error"]);
+        }
+    }
+    exit;
+}
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -99,5 +168,3 @@ if (!isset($_SESSION["loggedin"])) {
     <script src="appscript.js"></script>
   </body>
 </html>
-<?php
-}
