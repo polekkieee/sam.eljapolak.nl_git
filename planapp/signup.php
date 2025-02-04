@@ -8,14 +8,14 @@ require_once "../configurationsettings_sweetplans.php";
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - SweetPlans</title>
+    <title>Sign up - SweetPlans</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <div class="loginbody">
         <div class="login-container">
-            <h2>Login to <strong>SweetPlans</strong></h2>
+            <h2>Sign up for <strong>SweetPlans</strong></h2>
             <form method="post">
                 <input type="text" name="_name" placeholder="Name" required>
                 <input type="email" name="_email" placeholder="Email" required>
