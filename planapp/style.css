@@ -75,6 +75,10 @@ nav{
       width: 100%;
     }
 
+    h1{
+      font-size: x-large !important;
+    }
+
     .box{
         width: 100%;
     }
@@ -87,7 +91,7 @@ nav{
     }
 }
 
-h1{
+h1 {
     font-size: xx-large;
     color: var(--color-black-1);
     text-align: center;
