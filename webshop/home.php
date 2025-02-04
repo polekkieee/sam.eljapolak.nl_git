@@ -10,7 +10,7 @@ require_once "../configurationsettings.php";
     <!-- <meta http-equiv="refresh" content="10"> -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <title>Home</title>
 </head>
 
 <body>

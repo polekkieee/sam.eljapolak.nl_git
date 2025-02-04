@@ -20,7 +20,7 @@ require_once "../configurationsettings_sweetplans.php";
                 <input type="text" name="username" placeholder="Username" required>
                 <input type="password" name="password" placeholder="Password" required>
                 <input type="submit" value="Login" name="save">
-                <a class="signupbutton" href="signup.php">Sign up</a>
+                <a class="signupbutton" href="signup">Sign up</a>
             </form>
         </div>
     </div>

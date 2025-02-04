@@ -21,7 +21,7 @@ require_once "../configurationsettings_sweetplans.php";
                 <input type="email" name="_email" placeholder="Email" required>
                 <input type="password" name="_password" placeholder="Password" required>
                 <input type="submit" value="Sign up" name="save">
-                <a class="signupbutton" href="login.php">Log in</a>
+                <a class="signupbutton" href="login">Log in</a>
             </form>
 
             <?php
@@ -41,7 +41,7 @@ require_once "../configurationsettings_sweetplans.php";
                     $stmt->bindParam('_email', $_email);
                     $stmt->bindParam('_password', $_passworde);
 
-                    echo "<p>Registered. <a href='login.php'>Login</a></p>";
+                    echo "<p>Registered. <a href='login'>Login</a></p>";
 
                     // insert a row
                     $stmt->execute();

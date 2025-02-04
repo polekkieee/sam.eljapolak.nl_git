@@ -19,8 +19,8 @@ require_once "../configurationsettings_sweetplans.php";
             <h1><strong>SweetPlans</strong></h1>
         </div>
         <div class="account-buttons">
-            <div><a class="loginbutton" href="login.php">Log In</a></div>
-            <div><a class="signupbutton" href="signup.php">Sign Up</a></div>
+            <div><a class="loginbutton" href="login">Log In</a></div>
+            <div><a class="signupbutton" href="signup">Sign Up</a></div>
         </div>
         <div class="burgermenu nav-container">
             <input class="checkbox" type="checkbox" name="" id="" />
@@ -30,8 +30,8 @@ require_once "../configurationsettings_sweetplans.php";
                 <span class="line line3"></span>
             </div>
             <div class="menu-items">
-                <li><a class="loginbutton" href="login.php">Log In</a></li>
-                <li><a class="signupbutton" href="signup.php">Sign Up</a></li>
+                <li><a class="loginbutton" href="login">Log In</a></li>
+                <li><a class="signupbutton" href="signup">Sign Up</a></li>
             </div>
         </div>
     </nav>
