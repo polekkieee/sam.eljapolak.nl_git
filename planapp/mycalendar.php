@@ -15,14 +15,10 @@ error_log("Raw POST data: " . file_get_contents("php://input"));
 error_log("POST Array: " . print_r($_POST, true));
 
 
-// Read FormData manually
-parse_str(file_get_contents("php://input"), $post_data);
-
-if (!isset($post_data["action"])) {
-    die(json_encode(["status" => "error", "message" => "Action not received"]));
+if (!isset($_POST["action"])) {
+  die(json_encode(["status" => "error", "message" => "Action not specified"]));
 }
-$action = $post_data["action"];
-
+$action = $_POST["action"];
 
 // Get the logged-in user's ID from the session
 if (!isset($_SESSION["userId"])) {
