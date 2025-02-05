@@ -40,7 +40,7 @@ const months = [
 
 async function fetchEvents() {
   try {
-    const response = await fetch("mycalendar.php", {
+    const response = await fetch("/planapp/mycalendar.php", {
       method: "POST",
       headers: {
         "Content-Type": "application/json", // Ensure the content type is set to JSON
@@ -80,7 +80,10 @@ async function fetchEvents() {
 // ];
 
 const eventsArr = [];
-fetchEvents(); // Fetch events from the server
+// Call fetchEvents() when the page loads
+document.addEventListener("DOMContentLoaded", function () {
+  fetchEvents();
+});
 console.log(eventsArr);
 
 //function to add days in days with class day and prev-date next-date on previous month and next month days and active on today
