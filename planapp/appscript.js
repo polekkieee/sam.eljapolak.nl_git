@@ -40,12 +40,12 @@ const months = [
 
 async function fetchEvents() {
   try {
+    const formData = new FormData();
+    formData.append("action", "getEvents");
+
     const response = await fetch("/planapp/mycalendar.php", {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json", // Ensure the content type is set to JSON
-      },
-      body: JSON.stringify({ action: "getEvents" }), // Send the action parameter
+      body: formData, // Send data as FormData instead of JSON
     });
 
     // Log the raw response for debugging
@@ -60,6 +60,7 @@ async function fetchEvents() {
     console.error("Error fetching events:", error);
   }
 }
+
 
 // const eventsArr = [
 //   {
