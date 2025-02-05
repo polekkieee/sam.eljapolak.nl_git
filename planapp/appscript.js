@@ -61,7 +61,6 @@ async function fetchEvents() {
   }
 }
 
-
 // const eventsArr = [
 //   {
 //     day: 13,
