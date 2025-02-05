@@ -20,7 +20,7 @@ $action = $_POST["action"];
 if (!isset($_SESSION["id"])) {
     die(json_encode(["status" => "error", "message" => "User not logged in"]));
 }
-$user_id = $_SESSION["id"];
+$user_id = $_SESSION["userId"];
 
 try {
     // Handle the "getEvents" action
