@@ -78,6 +78,7 @@ try {
       referrerpolicy="no-referrer"
     />
     <link rel="stylesheet" href="appstyle.css" />
+    <link rel="icon" href="/planapp/favicon.ico">
     <title>My Calendar - <?php echo $_SESSION["name"] ?></title>
   </head>
   <body>
