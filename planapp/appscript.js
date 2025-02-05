@@ -43,11 +43,17 @@ async function fetchEvents() {
     const response = await fetch("mycalendar.php", {
       method: "POST",
       headers: {
-        "Content-Type": "application/json",
+        "Content-Type": "application/json", // Ensure the content type is set to JSON
       },
-      body: JSON.stringify({ action: "getEvents" }), // Tell the server to fetch events
+      body: JSON.stringify({ action: "getEvents" }), // Send the action parameter
     });
-    const data = await response.json(); // Parse the JSON response
+
+    // Log the raw response for debugging
+    const rawResponse = await response.text();
+    console.log("Raw Response:", rawResponse);
+
+    // Parse the JSON response
+    const data = JSON.parse(rawResponse);
     eventsArr = data; // Store the events in the `eventsArr` array
     initCalendar(); // Update the calendar UI
   } catch (error) {
