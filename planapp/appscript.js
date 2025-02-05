@@ -40,12 +40,12 @@ const months = [
 
 async function fetchEvents() {
   try {
-    const formData = new FormData();
-    formData.append("action", "getEvents");
-
     const response = await fetch("/planapp/mycalendar", {
       method: "POST",
-      body: formData, // Send data as FormData instead of JSON
+      headers: {
+        "Content-Type": "application/json", // Ensure the content type is set to JSON
+      },
+      body: JSON.stringify({ action: "getEvents" }), // Send the action parameter
     });
 
     // Log the raw response for debugging
@@ -60,7 +60,6 @@ async function fetchEvents() {
     console.error("Error fetching events:", error);
   }
 }
-
 
 // const eventsArr = [
 //   {
@@ -81,10 +80,7 @@ async function fetchEvents() {
 // ];
 
 const eventsArr = [];
-// Call fetchEvents() when the page loads
-document.addEventListener("DOMContentLoaded", function () {
-  fetchEvents();
-});
+fetchEvents(); // Fetch events from the server
 console.log(eventsArr);
 
 //function to add days in days with class day and prev-date next-date on previous month and next month days and active on today
