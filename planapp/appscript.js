@@ -43,7 +43,7 @@ async function fetchEvents() {
     const formData = new FormData();
     formData.append("action", "getEvents");
 
-    const response = await fetch("/planapp/mycalendar.php", {
+    const response = await fetch("/planapp/mycalendar", {
       method: "POST",
       body: formData, // Send data as FormData instead of JSON
     });
