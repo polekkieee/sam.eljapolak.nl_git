@@ -15,10 +15,7 @@ error_log("Raw POST data: " . file_get_contents("php://input"));
 error_log("POST Array: " . print_r($_POST, true));
 
 
-if (!isset($_POST["action"])) {
-  die(json_encode(["status" => "error", "message" => "Action not specified"]));
-}
-$action = $_POST["action"];
+$action = "getEvents";
 
 // Get the logged-in user's ID from the session
 if (!isset($_SESSION["userId"])) {
