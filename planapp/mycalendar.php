@@ -17,47 +17,48 @@ if (!isset($_POST["action"])) {
 $action = $_POST["action"];
 
 // Get the logged-in user's ID from the session
-if (!isset($_SESSION["id"])) {
+if (!isset($_SESSION["userId"])) {
     die(json_encode(["status" => "error", "message" => "User not logged in"]));
 }
 $user_id = $_SESSION["userId"];
 
 try {
-    // Handle the "getEvents" action
     if ($action == "getEvents") {
         // Fetch events for the logged-in user
-        $sql = "SELECT * FROM events WHERE user_id = :user_id";
+        $sql = "SELECT * FROM events WHERE user_id = :user_id ORDER BY year, month, day, time_from";
         $stmt = $conn->prepare($sql);
         $stmt->bindParam(":user_id", $user_id, PDO::PARAM_INT);
         $stmt->execute();
 
-        // Store the events in an array
         $events = [];
+
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-            $events[] = [
-                "day" => $row["day"],
-                "month" => $row["month"],
-                "year" => $row["year"],
-                "events" => [
-                    [
-                        "title" => $row["title"],
-                        "time" => $row["time_from"] . " - " . $row["time_to"],
-                    ],
-                ],
+            $dateKey = "{$row['year']}-{$row['month']}-{$row['day']}";
+
+            if (!isset($events[$dateKey])) {
+                $events[$dateKey] = [
+                    "day" => $row["day"],
+                    "month" => $row["month"],
+                    "year" => $row["year"],
+                    "events" => []
+                ];
+            }
+
+            $events[$dateKey]["events"][] = [
+                "title" => $row["title"],
+                "time" => $row["time_from"] . " - " . $row["time_to"]
             ];
         }
 
-        // Return the events as JSON
-        echo json_encode($events);
+        // Re-index the array (convert associative keys to numerical indices)
+        echo json_encode(array_values($events));
     }
 
-    // Handle other actions (addEvent, deleteEvent) here if needed
-
 } catch (PDOException $e) {
-    // Handle database errors
     echo json_encode(["status" => "error", "message" => "Database error: " . $e->getMessage()]);
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
