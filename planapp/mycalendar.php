@@ -7,6 +7,9 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
+// Debugging: Log the received POST data
+error_log("Received POST data: " . print_r($_POST, true));
+
 // Get the action from the AJAX request
 if (!isset($_POST["action"])) {
     die(json_encode(["status" => "error", "message" => "Action not specified"]));
@@ -48,92 +51,8 @@ try {
         echo json_encode($events);
     }
 
-    // Handle the "addEvent" action
-    elseif ($action == "addEvent") {
-        // Validate required fields
-        if (
-            !isset($_POST["day"]) ||
-            !isset($_POST["month"]) ||
-            !isset($_POST["year"]) ||
-            !isset($_POST["title"]) ||
-            !isset($_POST["time_from"]) ||
-            !isset($_POST["time_to"])
-        ) {
-            die(json_encode(["status" => "error", "message" => "Missing required fields"]));
-        }
+    // Handle other actions (addEvent, deleteEvent) here if needed
 
-        // Get the event data from the AJAX request
-        $day = $_POST["day"];
-        $month = $_POST["month"];
-        $year = $_POST["year"];
-        $title = $_POST["title"];
-        $time_from = $_POST["time_from"];
-        $time_to = $_POST["time_to"];
-
-        // Insert the event into the database
-        $sql = "INSERT INTO events (user_id, day, month, year, title, time_from, time_to) 
-                VALUES (:user_id, :day, :month, :year, :title, :time_from, :time_to)";
-        $stmt = $conn->prepare($sql);
-        $stmt->bindParam(":user_id", $user_id, PDO::PARAM_INT);
-        $stmt->bindParam(":day", $day, PDO::PARAM_INT);
-        $stmt->bindParam(":month", $month, PDO::PARAM_INT);
-        $stmt->bindParam(":year", $year, PDO::PARAM_INT);
-        $stmt->bindParam(":title", $title, PDO::PARAM_STR);
-        $stmt->bindParam(":time_from", $time_from, PDO::PARAM_STR);
-        $stmt->bindParam(":time_to", $time_to, PDO::PARAM_STR);
-
-        // Check if the event was added successfully
-        if ($stmt->execute()) {
-            echo json_encode(["status" => "success"]);
-        } else {
-            echo json_encode(["status" => "error", "message" => "Failed to add event"]);
-        }
-    }
-
-    // Handle the "deleteEvent" action
-    elseif ($action == "deleteEvent") {
-        // Validate required fields
-        if (
-            !isset($_POST["day"]) ||
-            !isset($_POST["month"]) ||
-            !isset($_POST["year"]) ||
-            !isset($_POST["title"])
-        ) {
-            die(json_encode(["status" => "error", "message" => "Missing required fields"]));
-        }
-
-        // Get the event data from the AJAX request
-        $day = $_POST["day"];
-        $month = $_POST["month"];
-        $year = $_POST["year"];
-        $title = $_POST["title"];
-
-        // Delete the event from the database
-        $sql = "DELETE FROM events 
-                WHERE user_id = :user_id 
-                AND day = :day 
-                AND month = :month 
-                AND year = :year 
-                AND title = :title";
-        $stmt = $conn->prepare($sql);
-        $stmt->bindParam(":user_id", $user_id, PDO::PARAM_INT);
-        $stmt->bindParam(":day", $day, PDO::PARAM_INT);
-        $stmt->bindParam(":month", $month, PDO::PARAM_INT);
-        $stmt->bindParam(":year", $year, PDO::PARAM_INT);
-        $stmt->bindParam(":title", $title, PDO::PARAM_STR);
-
-        // Check if the event was deleted successfully
-        if ($stmt->execute()) {
-            echo json_encode(["status" => "success"]);
-        } else {
-            echo json_encode(["status" => "error", "message" => "Failed to delete event"]);
-        }
-    }
-
-    // Invalid action
-    else {
-        echo json_encode(["status" => "error", "message" => "Invalid action"]);
-    }
 } catch (PDOException $e) {
     // Handle database errors
     echo json_encode(["status" => "error", "message" => "Database error: " . $e->getMessage()]);
