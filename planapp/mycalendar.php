@@ -10,11 +10,19 @@ error_reporting(E_ALL);
 // Debugging: Log the received POST data
 error_log("Received POST data: " . print_r($_POST, true));
 
-$input = json_decode(file_get_contents("php://input"), true);
-if (!isset($input["action"])) {
-  die(json_encode(["status" => "error", "message" => "Action not specified"]));
+// Log raw POST data for debugging
+error_log("Raw POST data: " . file_get_contents("php://input"));
+error_log("POST Array: " . print_r($_POST, true));
+
+
+// Read FormData manually
+parse_str(file_get_contents("php://input"), $post_data);
+
+if (!isset($post_data["action"])) {
+    die(json_encode(["status" => "error", "message" => "Action not received"]));
 }
-$action = $input["action"];
+$action = $post_data["action"];
+
 
 // Get the logged-in user's ID from the session
 if (!isset($_SESSION["userId"])) {

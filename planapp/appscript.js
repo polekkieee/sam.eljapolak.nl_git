@@ -40,26 +40,30 @@ const months = [
 
 async function fetchEvents() {
   try {
+    const formData = new FormData();
+    formData.append("action", "getEvents");
+
+    // Debug: Log FormData contents before sending
+    for (let pair of formData.entries()) {
+      console.log(pair[0] + ": " + pair[1]);
+    }
+
     const response = await fetch("/planapp/mycalendar", {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json", // Ensure the content type is set to JSON
-      },
-      body: JSON.stringify({ action: "getEvents" }), // Send the action parameter
+      body: formData,
     });
 
-    // Log the raw response for debugging
     const rawResponse = await response.text();
-    console.log("Raw Response:", rawResponse);
+    console.log("Raw Response:", rawResponse); // Debug raw response
 
-    // Parse the JSON response
     const data = JSON.parse(rawResponse);
-    eventsArr = data; // Store the events in the `eventsArr` array
-    initCalendar(); // Update the calendar UI
+    eventsArr = data;
+    initCalendar();
   } catch (error) {
     console.error("Error fetching events:", error);
   }
 }
+
 
 // const eventsArr = [
 //   {
