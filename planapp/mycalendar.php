@@ -10,6 +10,10 @@ error_reporting(E_ALL);
 // Debugging: Log the received POST data
 error_log("Received POST data: " . print_r($_POST, true));
 
+// Get the action from the AJAX request
+if (!isset($_POST["action"])) {
+    die(json_encode(["status" => "error", "message" => "Action not specified"]));
+}
 $action = $_POST["action"];
 
 // Get the logged-in user's ID from the session
