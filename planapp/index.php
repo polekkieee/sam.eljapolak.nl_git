@@ -11,8 +11,8 @@ require_once "../configurationsettings_sweetplans.php";
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SweetPlans</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="favicon" href="favicon.ico">
-</head>
+    <link rel="icon" href="/planapp/favicon.ico">
+    </head>
 
 <body>
 
