@@ -28,6 +28,19 @@ html{
     background-color: var(--color-white);
 }
 
+/* nice scroll bar */
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: #f5f5f5;
+  border-radius: 50px;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--primary-clr);
+  border-radius: 50px;
+}
+
 .box{
     width: 80vw;
     display: flex;
