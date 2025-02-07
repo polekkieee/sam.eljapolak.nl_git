@@ -4,6 +4,8 @@ require_once "../configurationsettings_sweetplans.php";
 
 $user_id = $_SESSION["userId"];
 
+error_log("User ID: $user_id");
+
 // Fetch events for the logged-in user
 $sql = "SELECT * FROM events WHERE user_id = :user_id ORDER BY year, month, day, time_from";
 $stmt = $conn->prepare($sql);
