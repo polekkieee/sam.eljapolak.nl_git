@@ -425,18 +425,33 @@ addEventSubmit.addEventListener("click", () => {
     });
   }
 
-  fetch("/planapp/phptasks/addevent.php", {
-    method: "POST",
-    data: {
-      day: activeDay,
-      month: month + 1,
-      year: year,
-      title: eventTitle,
-      time_from: timeFrom,
-      time_to: timeTo,
-    }
-  });
+  (async () => {
+    try {
+      const rawResponse = await fetch("/planapp/phptasks/addevent.php", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          day: activeDay,
+          month: month + 1,
+          year: year,
+          title: eventTitle,
+          time_from: timeFrom,
+          time_to: timeTo,
+        }),
+      });
 
+      if (!rawResponse.ok) {
+        throw new Error(`HTTP error! status: ${rawResponse.status}`);
+      }
+
+      const content = await rawResponse.text();
+      console.log(content);
+    } catch (error) {
+      console.error("Error adding event:", error);
+    }
+  })();
   console.log(eventsArr);
   addEventWrapper.classList.remove("active");
   addEventTitle.value = "";
