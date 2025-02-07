@@ -84,19 +84,23 @@ function initCalendar() {
   const prevLastDay = new Date(year, month, 0);
   const prevDays = prevLastDay.getDate();
   const lastDate = lastDay.getDate();
-  const day = firstDay.getDay();
-  const nextDays = 7 - lastDay.getDay() - 1;
+
+  let day = firstDay.getDay(); // Get the first day of the month (0=Sunday, 1=Monday)
+  if (day === 0) day = 7; // Convert Sunday (0) to 7 for Monday-based week
+
+  const nextDays = 8 - lastDay.getDay(); // Days to show from the next month
 
   date.innerHTML = months[month] + " " + year;
 
   let days = "";
 
-  for (let x = day; x > 0; x--) {
+  // Adjust the previous month's days to align Monday as the first day
+  for (let x = day - 1; x > 0; x--) {
     days += `<div class="day prev-date">${prevDays - x + 1}</div>`;
   }
 
+  // Current month days
   for (let i = 1; i <= lastDate; i++) {
-    //check if event is present on that day
     let event = false;
     eventsArr.forEach((eventObj) => {
       if (
@@ -107,6 +111,7 @@ function initCalendar() {
         event = true;
       }
     });
+
     if (
       i === new Date().getDate() &&
       year === new Date().getFullYear() &&
@@ -115,23 +120,21 @@ function initCalendar() {
       activeDay = i;
       getActiveDay(i);
       updateEvents(i);
-      if (event) {
-        days += `<div class="day today active event">${i}</div>`;
-      } else {
-        days += `<div class="day today active">${i}</div>`;
-      }
+      days += event
+        ? `<div class="day today active event">${i}</div>`
+        : `<div class="day today active">${i}</div>`;
     } else {
-      if (event) {
-        days += `<div class="day event">${i}</div>`;
-      } else {
-        days += `<div class="day ">${i}</div>`;
-      }
+      days += event
+        ? `<div class="day event">${i}</div>`
+        : `<div class="day">${i}</div>`;
     }
   }
 
-  for (let j = 1; j <= nextDays; j++) {
+  // Next month's days
+  for (let j = 1; j < nextDays; j++) {
     days += `<div class="day next-date">${j}</div>`;
   }
+
   daysContainer.innerHTML = days;
   addListner();
 }

@@ -41,13 +41,13 @@ if($_SESSION["loggedin"] !== true){
           <i class="fas fa-angle-right next"></i>
         </div>
         <div class="weekdays">
-          <div>Sun</div>
           <div>Mon</div>
           <div>Tue</div>
           <div>Wed</div>
           <div>Thu</div>
           <div>Fri</div>
           <div>Sat</div>
+          <div>Sun</div>
         </div>
         <div class="days"></div>
         <div class="goto-today">
