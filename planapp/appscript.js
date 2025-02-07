@@ -425,6 +425,18 @@ addEventSubmit.addEventListener("click", () => {
     });
   }
 
+  fetch("/planapp/phptasks/addevent.php", {
+    method: "POST",
+    data: {
+      day: activeDay,
+      month: month + 1,
+      year: year,
+      title: eventTitle,
+      time_from: timeFrom,
+      time_to: timeTo,
+    }
+  });
+
   console.log(eventsArr);
   addEventWrapper.classList.remove("active");
   addEventTitle.value = "";
