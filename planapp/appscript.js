@@ -40,7 +40,7 @@ const months = [
 
 async function fetchEvents() {
   try {
-    const response = await fetch("/phptasks/getevents.php", {
+    const response = await fetch("/planapp/phptasks/getevents", {
       method: "GET",
     });
 
