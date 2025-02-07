@@ -465,37 +465,66 @@ addEventSubmit.addEventListener("click", () => {
   }
 });
 
-//function to delete event when clicked on event
-eventsContainer.addEventListener("click", (e) => {
+// Function to delete event when clicked
+eventsContainer.addEventListener("click", async (e) => {
   if (e.target.classList.contains("event")) {
-    if (confirm("Are you sure you want to delete this event?")) {
-      const eventTitle = e.target.children[0].children[1].innerHTML;
-      eventsArr.forEach((event) => {
-        if (
-          event.day === activeDay &&
-          event.month === month + 1 &&
-          event.year === year
-        ) {
-          event.events.forEach((item, index) => {
-            if (item.title === eventTitle) {
-              event.events.splice(index, 1);
-            }
-          });
-          //if no events left in a day then remove that day from eventsArr
-          if (event.events.length === 0) {
-            eventsArr.splice(eventsArr.indexOf(event), 1);
-            //remove event class from day
-            const activeDayEl = document.querySelector(".day.active");
-            if (activeDayEl.classList.contains("event")) {
-              activeDayEl.classList.remove("event");
+    if (!confirm("Are you sure you want to delete this event?")) return;
+
+    // Get event details
+    const eventTitle = e.target.children[0].children[1].innerHTML;
+    
+    try {
+      // Send delete request to backend
+      const response = await fetch("/planapp/phptasks/deleteevent.php", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          day: activeDay,
+          month: month + 1,
+          year: year,
+          title: eventTitle,
+        }),
+      });
+
+      const result = await response.json();
+      console.log(result);
+
+      if (result.status === "success") {
+        // Remove event from frontend array
+        eventsArr.forEach((event, eventIndex) => {
+          if (
+            event.day === activeDay &&
+            event.month === month + 1 &&
+            event.year === year
+          ) {
+            event.events = event.events.filter((item) => item.title !== eventTitle);
+            
+            // If no events left, remove the day from eventsArr
+            if (event.events.length === 0) {
+              eventsArr.splice(eventIndex, 1);
             }
           }
+        });
+
+        // Remove event class from day if no more events
+        const activeDayEl = document.querySelector(".day.active");
+        if (activeDayEl && !eventsArr.some(event => event.day === activeDay)) {
+          activeDayEl.classList.remove("event");
         }
-      });
-      updateEvents(activeDay);
+
+        updateEvents(activeDay);
+      } else {
+        alert("Failed to delete event: " + result.message);
+      }
+    } catch (error) {
+      console.error("Error deleting event:", error);
+      alert("An error occurred. Please try again.");
     }
   }
 });
+
 
 //function to save events in local storage
 function saveEvents() {
