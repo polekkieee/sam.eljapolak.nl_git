@@ -1,4 +1,7 @@
 <?php
+session_start();
+require_once "../configurationsettings_sweetplans.php";
+
 $user_id = $_SESSION["userId"];
 
 // Fetch events for the logged-in user
@@ -24,4 +27,8 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
     "title" => $row["title"],
     "time" => $row["time_from"] . " - " . $row["time_to"],
     ];
+    // Return the events as a JSON response
+    header('Content-Type: application/json');
+    echo json_encode(array_values($events)); // Convert associative array to indexed array
+    exit();
 }

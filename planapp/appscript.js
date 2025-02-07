@@ -40,11 +40,8 @@ const months = [
 
 async function fetchEvents() {
   try {
-    const formData = new FormData();
-
     const response = await fetch("/planapp/phptasks/getevents.php", {
-      method: "POST",
-      body: formData,
+      method: "GET",
     });
 
     const rawResponse = await response.text();
