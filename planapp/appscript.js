@@ -41,14 +41,8 @@ const months = [
 async function fetchEvents() {
   try {
     const formData = new FormData();
-    formData.append("action", "getEvents");
 
-    // Debug: Log FormData contents before sending
-    for (let pair of formData.entries()) {
-      console.log(pair[0] + ": " + pair[1]);
-    }
-
-    const response = await fetch("/planapp/mycalendar", {
+    const response = await fetch("/planapp/phptasks/getevents.php", {
       method: "POST",
       body: formData,
     });
@@ -82,6 +76,7 @@ async function fetchEvents() {
 //     ],
 //   },
 // ];
+
 
 const eventsArr = [];
 fetchEvents(); // Fetch events from the server

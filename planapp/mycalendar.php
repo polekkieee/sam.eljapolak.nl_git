@@ -49,9 +49,6 @@ try {
         "time" => $row["time_from"] . " - " . $row["time_to"],
       ];
     }
-
-    // Convert associative array to indexed array
-    echo json_encode(array_values($events));
   }
 } catch (PDOException $e) {
   echo json_encode(["status" => "error", "message" => "Database error: " . $e->getMessage()]);
