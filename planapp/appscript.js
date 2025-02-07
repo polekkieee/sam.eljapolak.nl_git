@@ -40,14 +40,14 @@ const months = [
 
 async function fetchEvents() {
   try {
-    const response = await fetch("/planapp/phptasks/getevents", {
+    let response = await fetch("/planapp/phptasks/getevents", {
       method: "GET",
     });
 
     const rawResponse = await response.text();
     console.log("Raw Response:", rawResponse); // Debug raw response
 
-    const data = JSON.parse(rawResponse);
+    let data = JSON.parse(rawResponse);
     eventsArr = data;
     initCalendar();
   } catch (error) {
@@ -75,7 +75,7 @@ async function fetchEvents() {
 // ];
 
 
-const eventsArr = [];
+let eventsArr = [];
 fetchEvents(); // Fetch events from the server
 console.log(eventsArr);
 
