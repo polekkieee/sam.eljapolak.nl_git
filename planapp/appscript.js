@@ -445,7 +445,6 @@ addEventSubmit.addEventListener("click", () => {
       }
 
       const content = await rawResponse.text();
-      console.log(content);
     } catch (error) {
       console.error("Error adding event:", error);
     }
