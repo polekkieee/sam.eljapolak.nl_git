@@ -2,6 +2,11 @@
 session_start();
 require_once "../configurationsettings_sweetplans.php"; // Include your database configuration
 
+if($_SESSION["loggedin"] !== true){
+    header("location: login.php");
+    exit;
+}
+
 ?>
 
 
