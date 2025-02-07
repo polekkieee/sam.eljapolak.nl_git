@@ -401,8 +401,7 @@ addEventSubmit.addEventListener("click", () => {
     title: eventTitle,
     time: timeFrom + " - " + timeTo,
   };
-  console.log(newEvent);
-  console.log(activeDay);
+
   let eventAdded = false;
   if (eventsArr.length > 0) {
     eventsArr.forEach((item) => {
