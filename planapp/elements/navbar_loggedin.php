@@ -1,3 +1,9 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css">
+</head>
+
 <nav class="static">
     <div class="width-33">
         <img class="logoimg" id="logoimg" src="img/logo.svg" alt="SweetPlans Logo">
