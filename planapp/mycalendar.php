@@ -33,7 +33,7 @@ if ($_SESSION["loggedin"] !== true) {
 
 <body>
   <header>
-  <?php include("elements/navbar_loggedin.php") ?>
+    <?php include("elements/navbar_loggedin.php") ?>
   </header>
   <div class="container">
     <div class="left">
