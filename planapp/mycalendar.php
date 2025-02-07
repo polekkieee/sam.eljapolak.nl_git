@@ -2,57 +2,6 @@
 session_start();
 require_once "../configurationsettings_sweetplans.php"; // Include your database configuration
 
-// Enable error reporting for debugging
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
-// Debugging: Log the received POST data
-error_log("Received POST data: " . print_r($_POST, true));
-
-// Log raw POST data for debugging
-error_log("Raw POST data: " . file_get_contents("php://input"));
-error_log("POST Array: " . print_r($_POST, true));
-
-
-$action = "getEvents";
-
-// Get the logged-in user's ID from the session
-if (!isset($_SESSION["userId"])) {
-  die(json_encode(["status" => "error", "message" => "User not logged in"]));
-}
-$user_id = $_SESSION["userId"];
-
-try {
-  if ($action == "getEvents") {
-    // Fetch events for the logged-in user
-    $sql = "SELECT * FROM events WHERE user_id = :user_id ORDER BY year, month, day, time_from";
-    $stmt = $conn->prepare($sql);
-    $stmt->bindParam(":user_id", $user_id, PDO::PARAM_INT);
-    $stmt->execute();
-
-    $events = [];
-    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-      $dateKey = "{$row['day']}-{$row['month']}-{$row['year']}";
-
-      if (!isset($events[$dateKey])) {
-        $events[$dateKey] = [
-          "day" => $row["day"],
-          "month" => $row["month"],
-          "year" => $row["year"],
-          "events" => [],
-        ];
-      }
-
-      $events[$dateKey]["events"][] = [
-        "title" => $row["title"],
-        "time" => $row["time_from"] . " - " . $row["time_to"],
-      ];
-    }
-  }
-} catch (PDOException $e) {
-  echo json_encode(["status" => "error", "message" => "Database error: " . $e->getMessage()]);
-}
 ?>
 
 
