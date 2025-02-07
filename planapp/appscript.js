@@ -45,7 +45,6 @@ async function fetchEvents() {
     });
 
     const rawResponse = await response.text();
-    console.log("Raw Response:", rawResponse); // Debug raw response
 
     let data = JSON.parse(rawResponse);
     eventsArr = data;
@@ -77,7 +76,6 @@ async function fetchEvents() {
 
 let eventsArr = [];
 fetchEvents(); // Fetch events from the server
-console.log(eventsArr);
 
 //function to add days in days with class day and prev-date next-date on previous month and next month days and active on today
 function initCalendar() {
@@ -489,7 +487,6 @@ eventsContainer.addEventListener("click", async (e) => {
       });
 
       const result = await response.json();
-      console.log(result);
 
       if (result.status === "success") {
         // Remove event from frontend array
