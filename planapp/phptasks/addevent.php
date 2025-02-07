@@ -4,12 +4,12 @@ require_once '../../configurationsettings_sweetplans.php';
 
 $user_id = $_SESSION["userId"];
 
-$sql = "INSERT INTO events VALUES(
+$sql = "INSERT INTO events (user_id, day, month, year, title, time_from, time_to) VALUES(
                                 :user_id,
-                                :title,
                                 :day,
                                 :month,
                                 :year,
+                                :title,
                                 :time_from,
                                 :time_to
                                 )";
