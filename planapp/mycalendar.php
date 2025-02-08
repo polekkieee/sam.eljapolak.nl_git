@@ -26,7 +26,7 @@ if ($_SESSION["loggedin"] !== true) {
     integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
     crossorigin="anonymous"
     referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="appstyle.css" />
   <link rel="icon" href="/planapp/favicon.ico">
   <title>My Calendar - <?php echo $_SESSION["name"] ?></title>
 </head>
