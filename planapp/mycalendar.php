@@ -30,12 +30,11 @@ if ($_SESSION["loggedin"] !== true) {
   <link rel="icon" href="/planapp/favicon.ico">
   <title>My Calendar - <?php echo $_SESSION["name"] ?></title>
 </head>
-
 <body>
   <header>
     <nav class="static">
       <div class="width-33">
-        <img class="logoimg" id="logoimg" src="img/logo.svg" alt="SweetPlans Logo">
+        <img class="logoimg small" id="logoimg" src="img/logo.svg" alt="SweetPlans Logo">
       </div>
       <div class="width-33">
         <h1><strong>SweetPlans</strong></h1>
