@@ -92,7 +92,7 @@ function initCalendar() {
   let days = "";
 
   for (let x = day; x > 0; x--) {
-    days += <div class="day prev-date">${prevDays - x + 1}</div>;
+    days += `<div class="day prev-date">${prevDays - x + 1}</div>`;
   }
 
   for (let i = 1; i <= lastDate; i++) {
@@ -116,21 +116,21 @@ function initCalendar() {
       getActiveDay(i);
       updateEvents(i);
       if (event) {
-        days += <div class="day today active event">${i}</div>;
+        days += `<div class="day today active event">${i}</div>`;
       } else {
-        days += <div class="day today active">${i}</div>;
+        days += `<div class="day today active">${i}</div>`;
       }
     } else {
       if (event) {
-        days += <div class="day event">${i}</div>;
+        days += `<div class="day event">${i}</div>`;
       } else {
-        days += <div class="day ">${i}</div>;
+        days += `<div class="day ">${i}</div>`;
       }
     }
   }
 
   for (let j = 1; j <= nextDays; j++) {
-    days += <div class="day next-date">${j}</div>;
+    days += `<div class="day next-date">${j}</div>`;
   }
   daysContainer.innerHTML = days;
   addListner();
