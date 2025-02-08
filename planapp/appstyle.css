@@ -478,6 +478,13 @@ body {
 
 /* media queries */
 
+@media screen and (max-width: 1200px) {
+  .container {
+    width: 100%;
+    border-radius: 0;
+  }
+}
+
 @media screen and (max-width: 1000px) {
   body {
     align-items: flex-start;
