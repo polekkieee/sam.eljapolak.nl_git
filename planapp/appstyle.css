@@ -489,6 +489,7 @@ body {
   body {
     align-items: flex-start;
     justify-content: flex-start;
+    padding-bottom: 0;
   }
   .container {
     min-height: 100vh;
