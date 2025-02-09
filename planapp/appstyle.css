@@ -710,7 +710,7 @@ nav.static {
 }
 
 .menu-items {
-  position: sticky;
+  position: fixed;
   padding-top: 20vh;
   background-color: var(--color-light-grey);
   height: 100vh;
@@ -718,6 +718,7 @@ nav.static {
   top:0;
   left: 0;
   transform: translate(-110vw);
+  transform: translateZ(90);
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
