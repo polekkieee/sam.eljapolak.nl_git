@@ -73,6 +73,11 @@ async function fetchEvents() {
 //   },
 // ];
 
+document.querySelector('.menu-items').addEventListener('click', function() {
+  setTimeout(function() {
+      document.querySelector('.checkbox').checked = false;
+  }, 200);
+});
 
 let eventsArr = [];
 fetchEvents(); // Fetch events from the server
