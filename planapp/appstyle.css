@@ -793,7 +793,7 @@ nav.static {
 }
 
 h1 {
-  font-family: 'Julius Sans One', sans-serif;
+  font-family: 'Julius Sans One', sans-serif !important;
   font-size: xx-large;
   color: var(--color-black-1);
   text-align: center;
