@@ -62,7 +62,6 @@ body {
   border-radius: 10px;
   background-color: #373c4f;
 
-  transition: opacity 0.2s ease;
 }
 .left {
   width: 60%;
@@ -781,7 +780,7 @@ nav.static:has(.nav-container:has(input[type="checkbox"]:checked)) ~ .container,
 nav.static:has(.nav-container:has(input[type="checkbox"]:checked)) ~ .container .left,
 nav.static:has(.nav-container:has(input[type="checkbox"]:checked)) ~ .container .right,
 nav.static:has(.nav-container:has(input[type="checkbox"]:checked)) ~ .container .add-event-btn{ 
-  display: none;
+  display: none !important;
 }
 .nav-container input[type="checkbox"]:checked ~ .hamburger-lines .line1 {
   transform: rotate(45deg);
