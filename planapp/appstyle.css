@@ -23,6 +23,7 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
+  overflow-x: hidden;
 }
 /* nice scroll bar */
 ::-webkit-scrollbar {
@@ -710,7 +711,7 @@ nav.static {
 }
 
 .menu-items {
-  position: fixed;
+  position: sticky;
   padding-top: 20vh;
   background-color: var(--color-light-grey);
   height: 100vh;
