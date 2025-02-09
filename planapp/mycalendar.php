@@ -32,7 +32,7 @@ if ($_SESSION["loggedin"] !== true) {
 </head>
 
 <body>
-  <header>
+
     <nav class="static">
       <div class="width-33">
         <img class="logoimg" id="logoimg" src="img/logo.svg" alt="SweetPlans Logo">
@@ -54,8 +54,6 @@ if ($_SESSION["loggedin"] !== true) {
         </div>
       </div>
     </nav>
-  </header>
-  <main>
     <div class="container">
       <div class="left">
         <div class="calendar">
@@ -120,7 +118,7 @@ if ($_SESSION["loggedin"] !== true) {
         <i class="fas fa-plus"></i>
       </button>
     </div>
-  </main>
+
 
 
   <script src="appscript.js"></script>
