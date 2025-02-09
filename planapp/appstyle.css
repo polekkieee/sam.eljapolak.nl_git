@@ -571,6 +571,9 @@ body {
   .right .today-date {
     padding: 20px;
   }
+  h1{
+    font-size: x-large !important;
+  }
 }
 
 .credits {
