@@ -79,6 +79,15 @@ document.querySelector('.menu-items').addEventListener('click', function() {
   }, 200);
 });
 
+document.querySelector('.nav-container .checkbox').addEventListener('change', function() {
+  const container = document.querySelector('.container');
+  if (this.checked) {
+    container.classList.add('hidden');
+  } else {
+    container.classList.remove('hidden');
+  }
+});
+
 let eventsArr = [];
 fetchEvents(); // Fetch events from the server
 
