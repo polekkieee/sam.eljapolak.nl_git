@@ -699,6 +699,34 @@ nav.static {
   margin-bottom: 2.2rem;
 }
 
+.loginbutton{
+  background-color: var(--color-pink-2);
+  color: var(--color-white);
+  padding: 10px 13px 10px 15px;
+  text-decoration: none;
+  border-radius: 10px;
+  margin-right: 10px;
+  white-space: nowrap;
+}
+
+.loginbutton:hover{
+  background-color: var(--color-pink-1);
+  color: var(--color-white);
+}
+
+.signupbutton{
+  background-color: var(--color-red-2);
+  color: var(--color-white);
+  padding: 10px 13px 10px 15px;
+  text-decoration: none;
+  border-radius: 50px;
+  white-space: nowrap;
+}
+
+.signupbutton:hover{
+  background-color: var(--color-red-4);
+}
+
 .menu-items li {
   .loginbutton{
       margin-right:auto;

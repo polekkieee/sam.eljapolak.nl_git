@@ -48,13 +48,14 @@ if ($_SESSION["loggedin"] !== true) {
           <span class="line line3"></span>
         </div>
         <div class="menu-items">
-          <li><a class="loginbutton" href="mycalendar">MyCalendar</a></li>
+          <li><a class="loginbutton" href="index">Home</a></li>
+          <li><a class="loginbutton" href="profile">Profile</a></li>
           <li><a class="signupbutton" href="logout">Log Out</a></li>
         </div>
       </div>
     </nav>
   </header>
-  
+
   <div class="container">
     <div class="left">
       <div class="calendar">
