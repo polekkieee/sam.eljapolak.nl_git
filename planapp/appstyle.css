@@ -64,7 +64,7 @@ body {
   background-color: #373c4f;
 
   opacity: 1;
-  transition: opacity 0.3s ease, visibility 0.3s ease; /* Smooth transition */
+  transition: opacity 0.2s ease, visibility 0.1s ease; /* Smooth transition */
 }
 .left {
   width: 60%;
