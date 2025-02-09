@@ -606,7 +606,7 @@ nav.static {
 }
 
 .burgermenu.nav-container{
-  display: none;
+  display: flex;
 }
 
 .menu-items {
