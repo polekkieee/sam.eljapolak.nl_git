@@ -89,19 +89,20 @@ function initCalendar() {
   const prevLastDay = new Date(year, month, 0);
   const prevDays = prevLastDay.getDate();
   const lastDate = lastDay.getDate();
-  const day = firstDay.getDay();
-  const nextDays = 7 - lastDay.getDay() - 1;
+  const day = firstDay.getDay() === 0 ? 6 : firstDay.getDay() - 1; // Adjust for Monday start
+  const nextDays = 7 - (day + lastDate) % 7;
 
   date.innerHTML = months[month] + " " + year;
 
   let days = "";
 
+  // Add previous month's days
   for (let x = day; x > 0; x--) {
     days += `<div class="day prev-date">${prevDays - x + 1}</div>`;
   }
 
+  // Add current month's days
   for (let i = 1; i <= lastDate; i++) {
-    //check if event is present on that day
     let event = false;
     eventsArr.forEach((eventObj) => {
       if (
@@ -129,14 +130,16 @@ function initCalendar() {
       if (event) {
         days += `<div class="day event">${i}</div>`;
       } else {
-        days += `<div class="day ">${i}</div>`;
+        days += `<div class="day">${i}</div>`;
       }
     }
   }
 
+  // Add next month's days
   for (let j = 1; j <= nextDays; j++) {
     days += `<div class="day next-date">${j}</div>`;
   }
+
   daysContainer.innerHTML = days;
   addListner();
 }
