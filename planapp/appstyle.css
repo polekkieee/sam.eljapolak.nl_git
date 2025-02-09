@@ -1,5 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Julius+Sans+One&display=swap');
+
 :root {
   --primary-clr: #b38add;
+
+  --color-white: #FFFFFF;
+  --color-light-grey: #F5F3F4;
+  --color-dark-grey: #B1A7A6;
+
+  --color-red-1: #E5383B;
+  --color-red-2: #BA181B;
+  --color-red-3: #A4161A;
+  --color-red-4: #660708;
+
+  --color-pink-1: #EC99F0;
+  --color-pink-2: #EF75A6;
+
+  --color-black-1: #0B090A;
+  --color-black-2: #161A1D;
 }
 * {
   margin: 0;
@@ -22,7 +39,7 @@
 
 body {
   position: relative;
-  min-height: 100vh;
+  min-height: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -489,6 +506,8 @@ body {
     align-items: flex-start;
     justify-content: flex-start;
     padding-bottom: 0;
+    min-height: 100vh;
+
   }
   .container {
     min-height: 93vh;
@@ -523,6 +542,10 @@ body {
   }
   .add-event-wrapper {
     bottom: 100px;
+  }
+  nav.static {
+    width: 100%;
+
   }
 }
 @media screen and (max-width: 500px) {
@@ -749,4 +772,12 @@ nav.static {
 
 .nav-container input[type="checkbox"]:checked ~ .hamburger-lines .line3 {
   transform: rotate(-45deg);
+}
+h1 {
+  font-size: xx-large;
+  color: var(--color-black-1);
+  text-align: center;
+  strong{
+      color: var(--color-red-1);
+  }
 }
