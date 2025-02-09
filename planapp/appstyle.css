@@ -777,7 +777,10 @@ nav.static {
 .nav-container input[type="checkbox"]:checked ~ .menu-items {
   transform: translate(-10vw);
 }
-nav.static:has(.nav-container:has(input[type="checkbox"]:checked)) ~ .container {
+nav.static:has(.nav-container:has(input[type="checkbox"]:checked)) ~ .container,
+nav.static:has(.nav-container:has(input[type="checkbox"]:checked)) ~ .container .left,
+nav.static:has(.nav-container:has(input[type="checkbox"]:checked)) ~ .container .right,
+nav.static:has(.nav-container:has(input[type="checkbox"]:checked)) ~ .container .add-event-btn{ 
   display: none;
 }
 .nav-container input[type="checkbox"]:checked ~ .hamburger-lines .line1 {
