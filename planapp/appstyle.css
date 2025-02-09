@@ -54,7 +54,7 @@ body {
   padding: 5px;
   color: #fff;
   display: flex;
-  
+
   border-radius: 10px;
   background-color: #373c4f;
 }
@@ -765,7 +765,7 @@ nav.static {
 }
 
 .nav-container input[type="checkbox"]:checked ~ .menu-items {
-  transform: translate(-10);
+  transform: translate(-10vw);
 }
 
 .nav-container input[type="checkbox"]:checked ~ .hamburger-lines .line1 {
