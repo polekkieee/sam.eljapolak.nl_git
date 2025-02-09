@@ -55,6 +55,7 @@ body {
   width: 1200px;
   min-height: 850px;
   margin: 0 auto;
+  margin-top: -5px;
   padding: 5px;
   color: #fff;
   display: flex;
@@ -62,6 +63,8 @@ body {
   border-radius: 10px;
   background-color: #373c4f;
 
+  opacity: 1;
+  transition: opacity 0.3s ease, visibility 0.3s ease; /* Smooth transition */
 }
 .left {
   width: 60%;
@@ -799,6 +802,7 @@ h1 {
   }
 }
 
-.hidden {
-  display: none !important;
+.container.hidden {
+  opacity: 0; /* Fade out */
+  visibility: hidden; /* Hide the element after fading out */
 }
