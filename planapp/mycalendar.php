@@ -47,7 +47,7 @@ if ($_SESSION["loggedin"] !== true) {
           <span class="line line2"></span>
           <span class="line line3"></span>
         </div>
-        <div class="menu-items">
+        <div class="menu-items" z-index="100">
           <li><a class="loginbutton" href="index">Home</a></li>
           <li><a class="loginbutton" href="profile">Profile</a></li>
           <li><a class="signupbutton" href="logout">Log Out</a></li>
