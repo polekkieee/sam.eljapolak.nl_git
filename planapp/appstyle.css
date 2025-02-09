@@ -61,6 +61,8 @@ body {
 
   border-radius: 10px;
   background-color: #373c4f;
+
+  transition: opacity 0.2s ease;
 }
 .left {
   width: 60%;
@@ -775,7 +777,9 @@ nav.static {
 .nav-container input[type="checkbox"]:checked ~ .menu-items {
   transform: translate(-10vw);
 }
-
+.nav-container:has(input[type="checkbox"]:checked) ~ .container {
+  opacity: 0;
+}
 .nav-container input[type="checkbox"]:checked ~ .hamburger-lines .line1 {
   transform: rotate(45deg);
 }
