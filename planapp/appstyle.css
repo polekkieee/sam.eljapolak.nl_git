@@ -783,6 +783,7 @@ nav.static {
   transform: rotate(-45deg);
 }
 h1 {
+  font-family: 'Julius Sans One', sans-serif;
   font-size: xx-large;
   color: var(--color-black-1);
   text-align: center;
