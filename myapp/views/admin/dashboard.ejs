@@ -1,8 +1,9 @@
-<%- include('../partials/header', { title }) %>
+<%- include('partials/header', { title }) %>
 
 <div class="container mt-4">
   <h1>Admin Dashboard</h1>
   <p><strong>Unread Messages:</strong> <%= unreadMessages %></p>
+  <a href="add-track" class="btn btn-primary">Add Track</a>
 
   <h2 class="mt-4">Tracks</h2>
   <% if (tracks.length === 0) { %>
@@ -29,4 +30,4 @@
   <% } %>
 </div>
 
-<%- include('../partials/footer') %>
+<%- include('partials/footer') %>
