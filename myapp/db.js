@@ -7,6 +7,7 @@ const pool = mysql.createPool({
   user: process.env.DB_USER || 'your_plesk_db_username',
   password: process.env.DB_PASSWORD || 'your_plesk_db_password',
   database: process.env.DB_NAME || 'your_plesk_db_name',
+  port: process.env.DB_PORT || 3306,
   waitForConnections: true,
   connectionLimit: 10,
   queueLimit: 0
