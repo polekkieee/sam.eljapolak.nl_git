@@ -10,6 +10,12 @@ const adminRouter = require('./routes/admin');
 const contactRouter = require('./routes/contact');
 const { isAuthenticated } = require('./middleware/auth');
 
+const fs = require('fs');
+const logStream = fs.createWriteStream('app.log', { flags: 'a' });
+console.log = function (message) {
+  logStream.write(`${new Date().toISOString()} - ${message}\n`);
+};
+
 // Create Express application
 const app = express();
 
