@@ -1,3 +1,9 @@
+const fs = require('fs');
+const logStream = fs.createWriteStream('app.log', { flags: 'a' });
+console.log = function (message) {
+  logStream.write(`${new Date().toISOString()} - ${message}\n`);
+};
+
 const express = require('express');
 const path = require('path');
 const session = require('express-session');
@@ -9,12 +15,6 @@ const musicRouter = require('./routes/music');
 const adminRouter = require('./routes/admin');
 const contactRouter = require('./routes/contact');
 const { isAuthenticated } = require('./middleware/auth');
-
-const fs = require('fs');
-const logStream = fs.createWriteStream('app.log', { flags: 'a' });
-console.log = function (message) {
-  logStream.write(`${new Date().toISOString()} - ${message}\n`);
-};
 
 // Create Express application
 const app = express();
