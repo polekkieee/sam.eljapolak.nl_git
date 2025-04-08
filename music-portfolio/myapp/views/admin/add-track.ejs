@@ -1,0 +1,56 @@
+<%- include('../partials/header', { title }) %>
+
+<div class="container mt-4">
+  <h1>Add New Track</h1>
+
+  <% if (error) { %>
+    <div class="alert alert-danger"><%= error %></div>
+  <% } %>
+
+  <% if (success) { %>
+    <div class="alert alert-success"><%= success %></div>
+  <% } %>
+
+  <form action="/admin/add-track" method="POST">
+    <div class="mb-3">
+      <label for="title" class="form-label">Track Title</label>
+      <input type="text" class="form-control" id="title" name="title" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="genre" class="form-label">Genre</label>
+      <input type="text" class="form-control" id="genre" name="genre">
+    </div>
+
+    <div class="mb-3">
+      <label for="description" class="form-label">Description</label>
+      <textarea class="form-control" id="description" name="description"></textarea>
+    </div>
+
+    <div class="mb-3">
+      <label for="release_date" class="form-label">Release Date</label>
+      <input type="date" class="form-control" id="release_date" name="release_date">
+    </div>
+
+    <div class="mb-3">
+      <label for="soundcloud_url" class="form-label">SoundCloud URL</label>
+      <input type="url" class="form-control" id="soundcloud_url" name="soundcloud_url" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="soundcloud_embed_code" class="form-label">SoundCloud Embed Code</label>
+      <textarea class="form-control" id="soundcloud_embed_code" name="soundcloud_embed_code"></textarea>
+    </div>
+
+    <div class="form-check mb-3">
+      <input class="form-check-input" type="checkbox" id="featured" name="featured">
+      <label class="form-check-label" for="featured">
+        Featured Track
+      </label>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Add Track</button>
+  </form>
+</div>
+
+<%- include('../partials/footer') %>
