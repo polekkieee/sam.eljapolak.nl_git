@@ -21,7 +21,7 @@ async function testConnection() {
     connection.release();
     return true;
   } catch (error) {
-    console.log('Error connecting to the database:', error.message);
+    console.log('Error connecting to the database: ' + error.message);
     return false;
   }
 }
