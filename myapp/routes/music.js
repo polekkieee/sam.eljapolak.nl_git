@@ -6,6 +6,7 @@ const { pool } = require('../db');
 router.get('/', async (req, res) => {
   try {
     const [tracks] = await pool.query('SELECT * FROM tracks ORDER BY release_date DESC');
+    console.log('Fetched tracks:', tracks); // Debugging line to check fetched tracks
     res.render('music', { title: 'My Music', tracks });
   } catch (error) {
     console.error('Error fetching tracks:', error);
