@@ -9,7 +9,7 @@ router.get('/', async (req, res) => {
     console.log('Fetched tracks:', tracks); // Debugging line to check fetched tracks
     res.render('music', { title: 'My Music', tracks });
   } catch (error) {
-    console.error('Error fetching tracks:', error);
+    console.log('Error fetching tracks:', error);
     res.render('music', { title: 'My Music', tracks: [] });
   }
 });
