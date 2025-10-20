@@ -484,3 +484,5 @@ configurationsettings_sweetplans.php
 .vs/sam.eljapolak.nl_git/v17/DocumentLayout.json
 
 node_modules
+
+.env
