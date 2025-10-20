@@ -1,0 +1,33 @@
+<%- include('partials/header', { title }) %>
+
+<div class="container mt-4">
+  <h1>Admin Dashboard</h1>
+  <p><strong>Unread Messages:</strong> <%= unreadMessages %></p>
+  <a href="admin/add-track" class="btn btn-primary">Add Track</a>
+
+  <h2 class="mt-4">Tracks</h2>
+  <% if (tracks.length === 0) { %>
+    <p>No tracks found.</p>
+  <% } else { %>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Genre</th>
+          <th>Release Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% tracks.forEach(track => { %>
+          <tr>
+            <td><%= track.title %></td>
+            <td><%= track.genre || 'N/A' %></td>
+            <td><%= new Date(track.release_date).toLocaleDateString() %></td>
+          </tr>
+        <% }); %>
+      </tbody>
+    </table>
+  <% } %>
+</div>
+
+<%- include('partials/footer') %>
