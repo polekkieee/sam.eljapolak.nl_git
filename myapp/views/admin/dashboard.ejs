@@ -1,33 +1,70 @@
 <%- include('partials/header', { title }) %>
 
-<div class="container mt-4">
-  <h1>Admin Dashboard</h1>
-  <p><strong>Unread Messages:</strong> <%= unreadMessages %></p>
-  <a href="admin/add-track" class="btn btn-primary">Add Track</a>
+  <div class="container mt-4">
+    <h1>Admin Dashboard</h1>
+    <p><strong>Unread Messages:</strong>
+      <%= unreadMessages %>
+    </p>
 
-  <h2 class="mt-4">Tracks</h2>
-  <% if (tracks.length === 0) { %>
-    <p>No tracks found.</p>
-  <% } else { %>
-    <table class="table">
-      <thead>
-        <tr>
-          <th>Title</th>
-          <th>Genre</th>
-          <th>Release Date</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% tracks.forEach(track => { %>
-          <tr>
-            <td><%= track.title %></td>
-            <td><%= track.genre || 'N/A' %></td>
-            <td><%= new Date(track.release_date).toLocaleDateString() %></td>
-          </tr>
-        <% }); %>
-      </tbody>
-    </table>
-  <% } %>
-</div>
+    <a href="admin/add-track" class="btn btn-primary">Add Track</a>
 
-<%- include('partials/footer') %>
+    <!-- Import from SoundCloud Button -->
+    <form id="importForm" action="/admin/import-soundcloud" method="POST" style="display:inline;">
+      <button id="importBtn" type="submit" class="btn btn-secondary">Import from SoundCloud</button>
+    </form>
+
+    <script>
+      const form = document.getElementById('importForm');
+      const btn = document.getElementById('importBtn');
+
+      form.addEventListener('submit', () => {
+        btn.disabled = true;
+        btn.innerText = 'Importing...';
+      });
+    </script>
+
+    <!-- Success / Error messages -->
+    <% if (typeof success !=='undefined' && success) { %>
+      <div class="alert alert-success mt-2">
+        <%= success %>
+      </div>
+      <% } %>
+        <% if (typeof error !=='undefined' && error) { %>
+          <div class="alert alert-danger mt-2">
+            <%= error %>
+          </div>
+          <% } %>
+
+
+            <h2 class="mt-4">Tracks</h2>
+            <% if (tracks.length===0) { %>
+              <p>No tracks found.</p>
+              <% } else { %>
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>Title</th>
+                      <th>Genre</th>
+                      <th>Release Date</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% tracks.forEach(track=> { %>
+                      <tr>
+                        <td>
+                          <%= track.title %>
+                        </td>
+                        <td>
+                          <%= track.genre || 'N/A' %>
+                        </td>
+                        <td>
+                          <%= new Date(track.release_date).toLocaleDateString() %>
+                        </td>
+                      </tr>
+                      <% }); %>
+                  </tbody>
+                </table>
+                <% } %>
+  </div>
+
+  <%- include('partials/footer') %>

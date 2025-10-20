@@ -13,6 +13,7 @@ const { pool, testConnection } = require('./db');
 const indexRouter = require('./routes/index');
 const musicRouter = require('./routes/music');
 const adminRouter = require('./routes/admin');
+const soundcloudRouter = require('./routes/soundcloud');
 const contactRouter = require('./routes/contact');
 const { isAuthenticated } = require('./middleware/auth');
 
@@ -67,6 +68,7 @@ app.get('/logout', (req, res) => {
 app.use('/', indexRouter);
 app.use('/music', musicRouter);
 app.use('/admin', isAuthenticated, adminRouter);
+app.use('/admin', isAuthenticated, soundcloudRouter); 
 app.use('/contact', contactRouter);
 
 // 404 handler
