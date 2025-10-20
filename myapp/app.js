@@ -31,7 +31,7 @@ app.use(express.json());
 
 // Session management
 app.use(session({
-  secret: process.env.SESSION_SECRET || 'your-secure-session-secret',
+  secret: process.env.SESSION_SECRET,
   resave: false,
   saveUninitialized: false,
   cookie: { maxAge: 3600000 } // 1 hour
